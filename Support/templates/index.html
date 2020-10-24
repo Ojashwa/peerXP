@@ -13,10 +13,17 @@
 <body>
      <div class="container mt-5 back">
         <div class="row border border-warning justify-content-center" style="background-color: antiquewhite;">
-            <h1 class="text-center text-success">Welcome To ZOOHO Ticket API</h1>
+            <h1 class="text-center text-success">Welcome To ZOOHO Ticket </h1>
         </div>
         <div class="row border border-secondry mt-2 token">
             <div class="col-sm-11">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="text-{{ message.tags }} mt-3"{% endif %} style="display:block;float:right;">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
             <h3 class="mt-4 ml-4">Submit a ticket</h3>
             <h5 class="mt-4 ml-4">Ticket Information</h5>
             <form action="" method="POST">

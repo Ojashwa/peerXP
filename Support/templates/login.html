@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PeerLogin</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
@@ -15,16 +17,26 @@
         </div>
         <div class="row">
             <div class="col-sm-1">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
             </div>
             <div class="col-sm-10 border border-light mt-2 sign">
             <h3 class="mt-4 ml-5">Already a member?</h3>
             <p class="mt-2 ml-5">Sign In</p>
-            <form action="" method="POST">
+            <form action="" method="POST" id="login_form">
                 {% csrf_token %}
                 <div class="col-sm-5 ml-4">
-                    <input type="text" class="form-control" name="name" placeholder="Name">
-                    <input type="email" class="form-control mt-5" name="email" placeholder="Email Address">
-                    <input type="password" class="form-control mt-5"name="password" placeholder="Password">
+                    <input type="text" class="form-control"id="name" name="name" placeholder="Name">
+                        <p id="nameErr" style="display:none;">* This field is required</p>
+                    <input type="email" class="form-control mt-5" id="email" name="email" placeholder="Email Address">
+                        <p id="emailErr" style="display:none;">* This field is required</p>
+                    <input type="password" class="form-control mt-5" id="password" name="password" placeholder="Password">
+                        <p id="passErr" style="display:none;">* This field is required</p>
                     <button type="submit" id="btn" class="btn btn-dark btn-sm mt-3">Sign In</button>
                 </div>
                 <div class="col-sm-5">
@@ -35,6 +47,27 @@
             </div>
         </div>
     </div>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    $("#login_form").submit(function(event){
+        if($("#name").val()==""){
+            $("#nameErr").show('show');
+            $("#nameErr").css('color','red','display','block');
+            $('#name').focus();
+            return false;
+        }
+        if($("#email").val()==""){
+            $("#emailErr").show('show');
+            $("#emailErr").css('color','red','display','block');
+            $('#email').focus();
+            return false;
+        }
+        if($("#password").val()==""){
+            $("#passErr").show('show');
+            $("#passErr").css('color','red','display','block');
+            $('#password').focus();
+            return false;
+        }
+    })
+    </script>
 </body>
 </html>
