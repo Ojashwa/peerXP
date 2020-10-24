@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+     <div class="container mt-5 back">
+        <div class="row border border-warning justify-content-center" style="background-color: antiquewhite;">
+            <h1 class="text-center text-success">Welcome To ZOOHO Ticket API</h1>
+        </div>
+        <div class="row border border-secondry mt-2 token">
+            <div class="col-sm-11">
+            <h3 class="mt-4 ml-4">Submit a ticket</h3>
+            <h5 class="mt-4 ml-4">Ticket Information</h5>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="col-sm-7 ml-4">
+                    <label class="mt-2">Department</label><span><sup class="star">*</sup> </span>
+                    <select class="form-control" name="department">PWSLab DevOps Support
+                        <option value="PWSLab DevOps Support">PWSLab DevOps Support</option>
+                        <option value="i support">i support</option>
+                    </select>
+                    <label class="mt-2">Category</label><span><sup class="star">*</sup> </span>
+                    <select class="form-control" name="department">-None-
+                        <option value="-None-">-None-</option>
+                        <option value="NEW Project CI/CD Pipeline Setup">NEW Project CI/CD Pipeline Setup</option>
+                        <option value="Update CI/CD Pipeline Configuration">Update CI/CD Pipeline Configuration</option>
+                        <option value="DevSecOps Pipeline Setup">DevSecOps Pipeline Setup</option>
+                        <option value="CI/CD pipeline failure">CI/CD pipeline failure</option>
+                        <option value="Automated Deployment failure">Automated Deployment failure</option>
+                        <option value="Docker and Containers">Docker and Containers</option>
+                        <option value="Kubernetes Deployments (like EKS/GCP)">Kubernetes Deployments (like EKS/GCP)</option>
+                        <option value="Git Source control">Git Source control</option>
+                        <option value="PWSLab server not responding (502/503 errors)">PWSLab server not responding (502/503 errors)</option>
+                        <option value="PWSLab Runner not working (jobs not running)">PWSLab Runner not working (jobs not running)</option>
+                        <option value="User management and Project access">User management and Project access</option>
+                    </select>
+                    <span class="d-inline-block" data-toggle="tooltip" title="Enter your project URL like https://company.pwslab.net/johndoe/my-project/">
+                    <label class="mt-3">PWSLab Project URL &#9432;</label><span><sup class="star">*</sup> </span>
+                    </span>
+                    <input type="url" class="form-control"name="url">
+                    <label class="mt-3">Subject</label><span><sup class="star">*</sup> </span>
+                    <input type="text" class="form-control"name="subject">
+                    <label class="mt-3">Description</label><span><sup class="star">*</sup> </span>
+                    <textarea name="subject" id="subject" class="form-control " cols="30" rows="10"></textarea>
+                    <h5 class="mt-4">Contact Details</h5>
+                        <label class="mt-3">Contact Name</label><span><sup class="star">*</sup> </span>
+                        <input type="text" class="form-control" name="name" value="{{request.session.username|capfirst}}" disabled>
+                        <label class="mt-3">Email</label><span><sup class="star">*</sup> </span>
+                        <input type="text" class="form-control" name="email" value="{{request.session.email}}" disabled>
+                    <h5 class="mt-4">Additional Information</h5>
+                     <label class="mt-2">Priority</label><span><sup class="star">*</sup> </span>
+                    <select class="form-control" name="department">-None-
+                        <option value="-None-">-None-</option>
+                        <option value="High - Production System Down">High - Production System Down</option>
+                        <option value="Medium - System Impaired">Medium - System Impaired</option>
+                    </select>
+                    <button type="submit" class="btn btn-info btn-sm mt-3">submit</button>
+                    <span class="ml-1"><button type="submit" class="btn btn-light btn-sm mt-3">Discard</button></span>
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </form>
+            </div>
+            <div class="col-sm-1">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
