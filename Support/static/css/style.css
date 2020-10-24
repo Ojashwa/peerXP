@@ -1,0 +1,25 @@
+body{
+    background-color:whitesmoke;
+}
+.sign{
+    background-color: white;
+    height: 500px;
+    border-radius: 8px;
+}
+.token{
+    background-color: white;
+    height: 1200px;
+    border-radius: 8px;
+}
+#subject{
+    max-height: 200px;
+}
+#btn{
+    float:right;
+}
+.back{
+    height: 1400px;
+}
+.star{
+    color:tomato ;
+}
