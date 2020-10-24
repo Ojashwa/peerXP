@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeerLogin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row border border-warning justify-content-center" style="background-color: khaki;">
+            <h1 class="text-center text-success">Simple Login</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-10 border border-light mt-2 sign">
+            <h3 class="mt-4 ml-5">Already a member?</h3>
+            <p class="mt-2 ml-5">Sign In</p>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="col-sm-5 ml-4">
+                    <input type="text" class="form-control" name="name" placeholder="Name">
+                    <input type="email" class="form-control mt-5" name="email" placeholder="Email Address">
+                    <input type="password" class="form-control mt-5"name="password" placeholder="Password">
+                    <button type="submit" id="btn" class="btn btn-dark btn-sm mt-3">Sign In</button>
+                </div>
+                <div class="col-sm-5">
+                </div>
+            </form>
+            </div>
+            <div class="col-sm-1">
+            </div>
+        </div>
+    </div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
