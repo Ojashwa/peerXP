@@ -20,5 +20,6 @@ from Support import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.login),
-    path('index/',views.index,name='index')
+    path('index/',views.index,name='index'),
+    path('tokens/',views.tokens,name='tokens'),
 ]
