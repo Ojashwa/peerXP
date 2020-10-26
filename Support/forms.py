@@ -9,11 +9,12 @@ class UserloginForms(forms.ModelForm):
         fields = ['name','email','password']
 class TokenForm(forms.Form):
     '''token form '''
-    Department = forms.CharField(max_length=200)
-    Category = forms.CharField(max_length=200)
-    PWSLab_Project_URL = forms.CharField(max_length=200)
-    Subject = forms.CharField(max_length=150)
-    Description = forms.CharField(max_length=150)
-    Contact_Name = forms.CharField(max_length=100)
-    Email = forms.CharField(max_length=100)
-    Priority = forms.CharField(max_length=100)
+    category = forms.CharField(max_length=200)
+    webUrl = forms.CharField(max_length=200)
+    subject = forms.CharField(max_length=150)
+    description = forms.CharField(max_length=150)
+    email = forms.CharField(max_length=100)
+    priority = forms.CharField(max_length=100)
+    departmentId = forms.CharField(max_length=200)
+    contactId = forms.CharField(max_length=200)
+

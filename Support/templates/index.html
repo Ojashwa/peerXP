@@ -29,13 +29,15 @@
             <form action="tokens/" method="POST">
                 {% csrf_token %}
                 <div class="col-sm-7 ml-4">
+                <input type="hidden" name="departmentId" id="productid" value="7189000000051431">
+                <input type="hidden" name="contactId" id="productid" value="7189000002844181"> 
                     <label class="mt-2">Department</label><span><sup class="star">*</sup> </span>
-                    <select class="form-control" name="Department">PWSLab DevOps Support
+                    <select class="form-control" name="department">PWSLab DevOps Support
                         <option value="PWSLab DevOps Support">PWSLab DevOps Support</option>
                         <option value="i support">i support</option>
                     </select>
                     <label class="mt-2">Category</label><span><sup class="star">*</sup> </span>
-                    <select class="form-control" name="Category">-None- 
+                    <select class="form-control" name="category">-None- 
                         <option value="">-None-</option>
                         <option value="NEW Project CI/CD Pipeline Setup">NEW Project CI/CD Pipeline Setup</option>
                         <option value="Update CI/CD Pipeline Configuration">Update CI/CD Pipeline Configuration</option>
@@ -52,19 +54,19 @@
                     <span class="d-inline-block" data-toggle="tooltip" title="Enter your project URL like https://company.pwslab.net/johndoe/my-project/">
                     <label class="mt-3">PWSLab Project URL &#9432;</label><span><sup class="star">*</sup> </span>
                     </span>
-                    <input type="url" id="project_URL" class="form-control" name="PWSLab_Project_URL">
+                    <input type="url" id="url" class="form-control" name="webUrl">
                     <label class="mt-3">Subject</label><span><sup class="star">*</sup> </span>
-                    <input type="text"id="subject" class="form-control" name="Subject" maxlength="150">
+                    <input type="text"id="subject" class="form-control" name="subject" maxlength="150">
                     <label class="mt-3">Description</label><span><sup class="star">*</sup> </span>
-                    <textarea name="Description" id="description" class="form-control " cols="30" rows="10"></textarea>
+                    <textarea name="description" id="description" class="form-control " cols="30" rows="10"></textarea>
                     <h5 class="mt-4">Contact Details</h5>
                         <label class="mt-3">Contact Name</label><span><sup class="star">*</sup> </span>
-                        <input type="text" class="form-control" name="Contact_Name" value="{{request.session.username|capfirst}}" readonly="true">
+                        <input type="text" class="form-control" name="contactName" value="{{request.session.username|capfirst}}" readonly="true">
                         <label class="mt-3">Email</label><span><sup class="star">*</sup> </span>
-                        <input type="text" class="form-control" name="Email" value="{{request.session.email}}" readonly="true">
+                        <input type="text" class="form-control" name="email" value="{{request.session.email}}" readonly="true">
                     <h5 class="mt-4">Additional Information</h5>
                      <label class="mt-2">Priority</label><span><sup class="star">*</sup> </span>
-                    <select class="form-control" id="priority" name="Priority">-None-
+                    <select class="form-control" id="priority" name="priority">-None-
                         <option value="">-None-</option>
                         <option value="High - Production System Down">High - Production System Down</option>
                         <option value="Medium - System Impaired">Medium - System Impaired</option>

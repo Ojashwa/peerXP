@@ -24,39 +24,39 @@
             {% endif %}
         </div>
         <div class="row  mt-2 ">
-            <div class="col-sm-11">
-                <h5 class="mt-4 ml-4">Ticket Information</h5>
-                {{token_dict}}
-                {% for token in token_dict %}
-                {% if token.email == request.session.email %}
-                <div class="col-sm-7 ml-4 mt-2 border" style="background-color: white;height: 100px; border-radius: 8px;">
+            <div class="col-sm-8">
+                <div class="col-sm-8 ml-4 mt-2 border" style="background-color: white;height: 80px; border-radius: 8px;">
                     <div class="row">
                         <div class="col-sm-10">
-                        <h4 class="mt-1"><a href="/token-details/{{token.ticketNumber}}_{{token.id}}">{{token.subject}}</a></h4>
+                            <h4 class="mt-1 text-success">{{token_get.subject}}</a></h4>
                         </div>
                         <div class="col-sm-2">
-                            <h5 class="mt-1" style="">#{{token.ticketNumber}}</h5>
                         </div>
                     </div>
-                    <div class="row">
-                        <ul>
-                        <li class="ml-3">PWSLab DevOps Support</li>
-                        </ul>
-                    </div>
-                {% endif %}
                 </div>
-                {% endfor %}
                 <div class="col-sm-3">
                 </div>
             </div>
-            <div class="col-sm-1">
+            <div class="col-sm-4 border">
+                <h2 class="mt-4">Properties</h2>
+                <h4 class="text-secondary">TicketId</h4>
+                <p>#{{request.session.token}}</p>
+                <h4 class="text-secondary">Status</h4>
+                <p>{{token_get.status}}</p>
+                <h4 class="text-secondary">Channel</h4>
+                <p>{{token_get.channel}}</p>
+                <h2 class="mt-5">Ticket Information</h2>
+                <h4 class="text-secondary">Department</h4>
+                <p>PWSLab DevOps Support</p>
+                <h4 class="text-secondary">Category</h4>
+                <p>{{token_get.category}}</p>
+                <h2 class="mt-5">Additional Information</h2>
+                <h4 class="text-secondary" >Priority</h4>
+                <p>{{token_get.priority}}</p>
+                <h4 class="text-secondary">Email</h4>
+                <p>{{token_get.email}}</p>
             </div>
         </div>
     </div>
-    <script>
-    setTimeout(function() { 
-    $('#msg').fadeOut(); 
-    }, 3000);
-    </script>
 </body>
 </html>

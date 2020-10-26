@@ -22,4 +22,5 @@ urlpatterns = [
     path('',views.login),
     path('index/',views.index,name='index'),
     path('tokens/',views.tokens,name='tokens'),
+    path('token-details/<str:tokenId_token>',views.token_details,name='token-details'),
 ]
