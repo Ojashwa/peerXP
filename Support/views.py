@@ -1,7 +1,10 @@
-from django.shortcuts import render,HttpResponse,redirect
-import json
-from django.contrib import messages
 import requests
+import json
+from django.shortcuts import render,HttpResponse,redirect
+from dateutil import parser
+from django.utils import timezone
+from datetime import datetime
+from django.contrib import messages
 from.models import Userlogin
 from.forms import TokenForm
 
@@ -71,6 +74,8 @@ def token_details(request,tokenId_token):
     # shows the response code of GET
     print(get_response.status_code)
     token_get = get_response.json()
-    print(token_get)
+    localtz = str(parser.parse(token_get['createdTime']).astimezone(timezone.get_current_timezone()))
+    localtime = datetime.strptime((localtz)[:19],"%Y-%m-%d %H:%M:%S")
+    print(localtime)
     request.session['token'] = token
-    return render(request,"tokens.html",{'token_get':token_get})
+    return render(request,"tokens.html",{'token_get':token_get,'created_date':localtime})

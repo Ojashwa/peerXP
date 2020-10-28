@@ -50,6 +50,10 @@
                 <p>PWSLab DevOps Support</p>
                 <h4 class="text-secondary">Category</h4>
                 <p>{{token_get.category}}</p>
+                <h4 class="text-secondary">Created date</h4>
+                <p>{{created_date|date:"d M Y g:i A"}}</p>
+                <p>{{token_get.createdTime}}</p>
+                <p>{{request.build_absolute_uri}}</p>
                 <h2 class="mt-5">Additional Information</h2>
                 <h4 class="text-secondary" >Priority</h4>
                 <p>{{token_get.priority}}</p>

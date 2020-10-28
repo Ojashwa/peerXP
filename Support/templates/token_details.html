@@ -26,7 +26,6 @@
         <div class="row  mt-2 ">
             <div class="col-sm-11">
                 <h5 class="mt-4 ml-4">Ticket Information</h5>
-                {{token_dict}}
                 {% for token in token_dict %}
                 {% if token.email == request.session.email %}
                 <div class="col-sm-7 ml-4 mt-2 border" style="background-color: white;height: 100px; border-radius: 8px;">
