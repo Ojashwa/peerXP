@@ -55,9 +55,14 @@ def tokens(request):
     #send GET request to API
     get_response = requests.get('https://desk.zoho.in/api/v1/tickets', headers=headers)
     # shows the response code of GET
-    print(get_response.status_code)
+    print("response from the server--->",get_response.status_code)
     token_get = get_response.json()
     token_list = token_get['data']
+    # print(token_list)
+    for date in token_list:
+        localtz = str(parser.parse(date['createdTime']).astimezone())
+        localtime = datetime.strptime((localtz)[:19],"%Y-%m-%d %H:%M:%S")
+        date['createdTime'] = localtime
     return render(request,"token_details.html",{'token_dict':token_list})
 
 def token_details(request,tokenId_token):
@@ -74,8 +79,7 @@ def token_details(request,tokenId_token):
     # shows the response code of GET
     print(get_response.status_code)
     token_get = get_response.json()
-    localtz = str(parser.parse(token_get['createdTime']).astimezone(timezone.get_current_timezone()))
+    localtz = str(parser.parse(token_get['createdTime']).astimezone())
     localtime = datetime.strptime((localtz)[:19],"%Y-%m-%d %H:%M:%S")
-    print(localtime)
     request.session['token'] = token
     return render(request,"tokens.html",{'token_get':token_get,'created_date':localtime})
